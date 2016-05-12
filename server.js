@@ -8,6 +8,8 @@ const session = require('express-session');
 const passport = require('passport');
 const PORT = process.env.PORT || 3000;
 
+const setUpPassport = require('./passport/setupPassport');
+
 const auth = require('./routes/auth');
 
 
@@ -24,13 +26,17 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.resolve(__dirname, 'public')));
+setUpPassport();
 
-
-//app.use('/api/gists', gists);
 app.use('/auth', auth);
 
 app.get('/', (res, req) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 app.listen(PORT, () => {
