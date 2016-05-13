@@ -10,7 +10,7 @@ router.get('/github',
 router.get('/github/callback',
   passport.authenticate('github', { failureRedirect: '/login' }),
   function(req, res) {
-    res.redirect('/?' + querystring.stringify({accessToken: req.user.accessToken}));
+    res.redirect('/?' + querystring.stringify({accessToken: req.user.accessToken, username: req.user.username}));
   });
 
 module.exports = router;

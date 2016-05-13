@@ -30,7 +30,7 @@ setUpPassport();
 
 app.use('/auth', auth);
 
-app.get('/', (res, req) => {
+app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
