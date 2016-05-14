@@ -3,7 +3,7 @@ const React = require('react');
 var GistItem = React.createClass({
   render: function() {
     return (
-      <div className="GistItem">
+      <div className="GistItem" onClick={this.props.handleClick}>
         <a href={this.props.gistItem.html_url}>{this.props.gistItem.html_url}</a>
         <p>{this.props.gistItem.description}</p>
       </div>

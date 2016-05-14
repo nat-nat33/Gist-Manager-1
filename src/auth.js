@@ -1,10 +1,5 @@
 var auth = {
-  login: function() {
-
-  },
-
   getToken: function() {
-    console.log(localStorage.getItem('accessToken'));
     return localStorage.getItem('accessToken');
   },
 
@@ -13,7 +8,6 @@ var auth = {
   },
 
   isLoggedIn: function() {
-    console.log("isLoggedIn", !!localStorage.getItem('accessToken'));
     return !!localStorage.getItem('accessToken');
   }
 

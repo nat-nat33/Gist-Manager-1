@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/index',
+  entry: './src/index.jsx',
   output: {
     path: './public/js',
     filename: 'browser-bundle.js'
@@ -8,7 +8,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
